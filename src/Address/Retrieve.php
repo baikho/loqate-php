@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Baikho\Loqate\Address;
 
-use Baikho\Loqate\BaseLoqateRequest;
+use Baikho\Loqate\BaseClient;
 
-class Retrieve extends BaseLoqateRequest
+/**
+ * Class Retrieve v1.
+ *
+ * @package Baikho\Loqate\Address
+ * @see https://www.loqate.com/resources/support/apis/Capture/Interactive/Retrieve/1/
+ */
+class Retrieve extends BaseClient
 {
   /**
    * {@inheritdoc}

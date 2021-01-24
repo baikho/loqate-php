@@ -11,14 +11,14 @@ composer require baikho/loqate-php
 ## Examples
 
 ```php
-$loqate = new \Baikho\Loqate\Loqate('AA1-BB2-CC3');
+
+$loqate = new \Baikho\Loqate\Loqate('API Key');
 
 // Simple example.
 $result = $loqate->address()->find('foo');
 
 // Advanced example.
-$find = $loqate->requestBuilder(Find::class);
-$result = $find
+$result = (new \Baikho\Loqate\Address\Find('API Key'))
   ->setText('foo')
   ->setIsMiddleWare(TRUE)
   ->setContainer('bar')

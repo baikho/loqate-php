@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Baikho\Loqate\Address;
 
-use Baikho\Loqate\BaseLoqateRequest;
+use Baikho\Loqate\BaseClient;
 
 /**
- * Class Find.
+ * Class Find v1.1.
  *
  * @package Baikho\Loqate\Address
+ * @see https://www.loqate.com/resources/support/apis/Capture/Interactive/Find/1.1/
  */
-class Find extends BaseLoqateRequest
+class Find extends BaseClient
 {
   /**
    * The search text to find. Ideally a postcode or the start of the address.
@@ -92,7 +93,7 @@ class Find extends BaseLoqateRequest
    */
   public function __construct(string $key, string $text = NULL, bool $isMiddleware = NULL, string $container = NULL, string $origin = NULL, string $countries = NULL, int $limit = NULL, string $language = NULL, bool $bias = NULL, string $filters = NULL)
   {
-    $this->key = $key;
+    parent::__construct($key);
     $this->text = $text;
     $this->isMiddleware = $isMiddleware;
     $this->container = $container;

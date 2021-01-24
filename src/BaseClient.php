@@ -13,40 +13,12 @@ use Psr\Http\Message\StreamInterface;
  *
  * @package Baikho\Loqate
  */
-abstract class BaseClient
+abstract class BaseClient implements ClientInterface
 {
-  /**
-   * The key used to authenticate with the service.
-   *
-   * @var string
-   */
-  protected string $key;
+  use KeyableTrait;
 
   /**
-   * LoqateClient constructor.
-   *
-   * @param string $key
-   */
-  public function __construct(string $key)
-  {
-    $this->key = $key;
-  }
-
-  /**
-   * Return the API key.
-   *
-   * @return string
-   */
-  public function getKey(): string
-  {
-    return $this->key;
-  }
-
-  /**
-   * Return the request root URI.
-   *
-   * @param string $uri
-   * @return string
+   * {@inheritdoc}
    */
   public function getRootUri(string $uri): string
   {
@@ -54,18 +26,22 @@ abstract class BaseClient
   }
 
   /**
-   * Do the request.
-   *
-   * @param LoqateRequestInterface $request
-   * @return \Psr\Http\Message\StreamInterface
-   * @throws \GuzzleHttp\Exception\GuzzleException
+   * {@inheritdoc}
    */
-  public function makeRequest(LoqateRequestInterface $request): StreamInterface
+  public function toArray(): array
+  {
+    return get_object_vars($this);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function makeRequest(): StreamInterface
   {
     $client = new Client();
 
-    $response = $client->request('GET', $this->getRootUri($request->getUri()), [
-      RequestOptions::QUERY => $request->toArray(),
+    $response = $client->request('GET', $this->getRootUri($this->getUri()), [
+      RequestOptions::QUERY => $this->toArray(),
     ]);
 
     return json_decode($response->getBody());

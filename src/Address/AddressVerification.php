@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Baikho\Loqate\Address;
 
-use Baikho\Loqate\BaseClient;
+use Baikho\Loqate\KeyableTrait;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\StreamInterface;
 
@@ -13,26 +13,32 @@ use Psr\Http\Message\StreamInterface;
  *
  * @package Baikho\Loqate\Address
  */
-class AddressVerification extends BaseClient
+class AddressVerification
 {
+  use KeyableTrait;
+
   /**
+   * Find v1.1.
+   *
    * @param string $text
    * @return \Psr\Http\Message\StreamInterface
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function find(string $text): StreamInterface
   {
-    return $this->makeRequest(new Find($this->getKey(), $text));
+    return (new Find($this->getKey(), $text))->makeRequest();
   }
 
   /**
+   * Retrieve v1.
+   *
    * @param string $id
    * @return \Psr\Http\Message\StreamInterface
    * @throws GuzzleException
    */
   public function retrieve(string $id): StreamInterface
   {
-    return $this->makeRequest($retrieve = NULL);
+    return (new Retrieve($this->getKey()))->makeRequest();
   }
 
 }

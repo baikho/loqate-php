@@ -8,12 +8,17 @@ A PHP Wrapper for the [Loqate API](https://www.loqate.com/resources/support/apis
 composer require baikho/loqate-php
 ```
 
-## Examples
+## Usage
 
 ```php
-
 $loqate = new \Baikho\Loqate\Loqate('API Key');
+```
 
+### Address Verification API
+
+#### Find Address:
+
+```php
 // Simple example.
 $result = $loqate->address()->find('foo');
 
@@ -23,5 +28,17 @@ $result = (new \Baikho\Loqate\Address\Find('API Key'))
   ->setIsMiddleWare(TRUE)
   ->setContainer('bar')
   ->setCountries('NL')
+  ->makeRequest();
+```
+
+#### Retrieve Address:
+
+```php
+// Simple example.
+$result = $loqate->address()->retrieve('foo');
+
+// Advanced example.
+$result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
+  ->setId('foo')
   ->makeRequest();
 ```

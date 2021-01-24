@@ -6,7 +6,6 @@ namespace Baikho\Loqate;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use Psr\Http\Message\StreamInterface;
 
 /**
  * Class BaseClient.

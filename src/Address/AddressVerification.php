@@ -6,7 +6,6 @@ namespace Baikho\Loqate\Address;
 
 use Baikho\Loqate\KeyableTrait;
 use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\StreamInterface;
 
 /**
  * Class AddressVerification.

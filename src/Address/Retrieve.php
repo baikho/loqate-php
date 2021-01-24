@@ -47,7 +47,7 @@ class Retrieve extends BaseClient
    */
   public function getUri(): string
   {
-    return 'Capture/Interactive/Retrieve/v1';
+    return 'Capture/Interactive/Retrieve/v1/';
   }
 
   /**
@@ -56,6 +56,18 @@ class Retrieve extends BaseClient
   public function setParams(array $parameters): self
   {
     // TODO: Implement setParams() method.
+  }
+
+  /**
+   * Sets the id.
+   *
+   * @param string $id
+   * @return Retrieve
+   */
+  public function setId(string $id): Retrieve
+  {
+    $this->id = $id;
+    return $this;
   }
 
 }

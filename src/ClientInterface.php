@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Baikho\Loqate;
 
-use Psr\Http\Message\StreamInterface;
-
 /**
  * Interface ClientInterface.
  *

@@ -2,6 +2,12 @@
 
 A PHP Wrapper for the [Loqate API](https://www.loqate.com/resources/support/apis/).
 
+## Installation
+
+```
+composer require baikho/loqate-php
+```
+
 ## Examples
 
 ```php

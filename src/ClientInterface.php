@@ -16,10 +16,9 @@ interface ClientInterface
   /**
    * Return the request root URI.
    *
-   * @param string $uri
    * @return string
    */
-  public function getRootUri(string $uri): string;
+  public function getRootUri(): string;
 
   /**
    * Gets the request URI.
@@ -58,9 +57,9 @@ interface ClientInterface
   /**
    * Do the request.
    *
-   * @return \Psr\Http\Message\StreamInterface
+   * @return mixed
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function makeRequest(): StreamInterface;
+  public function makeRequest();
 
 }

@@ -31,10 +31,10 @@ class AddressVerification
    * Find v1.1.
    *
    * @param string $text
-   * @return \Psr\Http\Message\StreamInterface
+   * @return mixed
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function find(string $text): StreamInterface
+  public function find(string $text)
   {
     return (new Find($this->getKey(), $text))->makeRequest();
   }
@@ -43,12 +43,12 @@ class AddressVerification
    * Retrieve v1.
    *
    * @param string $id
-   * @return \Psr\Http\Message\StreamInterface
+   * @return mixed
    * @throws GuzzleException
    */
-  public function retrieve(string $id): StreamInterface
+  public function retrieve(string $id)
   {
-    return (new Retrieve($this->getKey()))->makeRequest();
+    return (new Retrieve($this->getKey(), $id))->makeRequest();
   }
 
 }

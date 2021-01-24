@@ -37,9 +37,9 @@ abstract class BaseClient implements ClientInterface
   /**
    * {@inheritdoc}
    */
-  public function getRootUri(string $uri): string
+  public function getRootUri(): string
   {
-    return 'https://api.addressy.com/' . $uri . 'json3.ws';
+    return 'https://api.addressy.com/' . $this->getUri() . 'json3.ws';
   }
 
   /**
@@ -61,11 +61,11 @@ abstract class BaseClient implements ClientInterface
   /**
    * {@inheritdoc}
    */
-  public function makeRequest(): StreamInterface
+  public function makeRequest()
   {
     $client = new Client();
 
-    $response = $client->get($this->getRootUri($this->getUri()), [
+    $response = $client->get($this->getRootUri(), [
       RequestOptions::QUERY => $this->toArray(),
     ]);
 

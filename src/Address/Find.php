@@ -78,7 +78,7 @@ class Find extends BaseClient
   protected ?string $filters;
 
   /**
-   * InteractiveFind constructor.
+   * Find constructor.
    *
    * @param string $key
    * @param string|null $text
@@ -167,6 +167,18 @@ class Find extends BaseClient
   }
 
   /**
+   * Sets the origin.
+   *
+   * @param string $origin
+   * @return Find
+   */
+  public function setOrigin(string $origin): Find
+  {
+    $this->origin = $origin;
+    return $this;
+  }
+
+  /**
    * Sets the container.
    *
    * @param string $countries
@@ -178,4 +190,51 @@ class Find extends BaseClient
     return $this;
   }
 
+  /**
+   * Sets the limit.
+   *
+   * @param int $limit
+   * @return Find
+   */
+  public function setLimit(int $limit): Find
+  {
+    $this->limit = $limit;
+    return $this;
+  }
+
+  /**
+   * Sets the language.
+   *
+   * @param string $language
+   * @return Find
+   */
+  public function setLanguage(string $language): Find
+  {
+    $this->language = $language;
+    return $this;
+  }
+
+  /**
+   * Sets the bias.
+   *
+   * @param bool $bias
+   * @return Find
+   */
+  public function setBias(bool $bias): Find
+  {
+    $this->bias = $bias;
+    return $this;
+  }
+
+  /**
+   * Sets the filters.
+   *
+   * @param string $filters
+   * @return Find
+   */
+  public function setFilters(string $filters): Find
+  {
+    $this->filters = $filters;
+    return $this;
+  }
 }

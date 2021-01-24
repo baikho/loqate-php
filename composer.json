@@ -14,7 +14,7 @@
   "minimum-stability": "stable",
   "require": {
     "php": "^7.3 || ^8.0",
-    "guzzlehttp/guzzle": "^7.2"
+    "guzzlehttp/guzzle": "^6.5 || ^7.2"
   },
   "autoload": {
     "psr-4": {

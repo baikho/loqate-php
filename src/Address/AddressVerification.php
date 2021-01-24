@@ -18,6 +18,16 @@ class AddressVerification
   use KeyableTrait;
 
   /**
+   * AddressVerification constructor.
+   *
+   * @param string $key
+   */
+  public function __construct(string $key)
+  {
+    $this->key = $key;
+  }
+
+  /**
    * Find v1.1.
    *
    * @param string $text

@@ -17,16 +17,6 @@ trait KeyableTrait
   protected string $key;
 
   /**
-   * LoqateClient constructor.
-   *
-   * @param string $key
-   */
-  public function __construct(string $key)
-  {
-    $this->key = $key;
-  }
-
-  /**
    * Return the API key.
    *
    * @return string

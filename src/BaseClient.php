@@ -18,11 +18,36 @@ abstract class BaseClient implements ClientInterface
   use KeyableTrait;
 
   /**
+   * Holds the results of the query.
+   *
+   * @var string
+   */
+  private string $data;
+
+  /**
+   * BaseClient constructor.
+   *
+   * @param string $key
+   */
+  public function __construct(string $key)
+  {
+    $this->key = $key;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function getRootUri(string $uri): string
   {
     return 'https://api.addressy.com/' . $uri . 'json3.ws';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getData(): string
+  {
+    return $this->data;
   }
 
   /**
@@ -40,11 +65,11 @@ abstract class BaseClient implements ClientInterface
   {
     $client = new Client();
 
-    $response = $client->request('GET', $this->getRootUri($this->getUri()), [
+    $response = $client->get($this->getRootUri($this->getUri()), [
       RequestOptions::QUERY => $this->toArray(),
     ]);
 
-    return json_decode($response->getBody());
+    return json_decode($response->getBody()->getContents());
   }
 
 }

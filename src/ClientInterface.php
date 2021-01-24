@@ -36,6 +36,13 @@ interface ClientInterface
   public function getKey(): string;
 
   /**
+   * Holds the results of the query.
+   *
+   * @return string
+   */
+  public function getData(): string;
+
+  /**
    * Get array output.
    */
   public function toArray(): array;

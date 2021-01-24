@@ -16,6 +16,16 @@ class Loqate
   use KeyableTrait;
 
   /**
+   * Loqate constructor.
+   *
+   * @param string $key
+   */
+  public function __construct(string $key)
+  {
+    $this->key = $key;
+  }
+
+  /**
    * Get the Address Verification API.
    *
    * @return AddressVerification

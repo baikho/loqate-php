@@ -19,63 +19,63 @@ class Find extends BaseClient
    *
    * @var string|null
    */
-  private ?string $text;
+  protected ?string $text;
 
   /**
    * Whether the API is being called from a middleware implementation (and therefore the calling IP address should not be used for biasing).
    *
    * @var bool|null
    */
-  private ?bool $isMiddleware;
+  protected ?bool $isMiddleware;
 
   /**
    * A container for the search. This should only be another Id previously returned from this service when the Type of the result was not 'Address'.
    *
    * @var string|null
    */
-  private ?string $container;
+  protected ?string $container;
 
   /**
    * A starting location for the search. This can be the name or ISO 2 or 3 character code of a country, WGS84 coordinates (comma separated) or IP address to search from.
    *
    * @var string|null
    */
-  private ?string $origin;
+  protected ?string $origin;
 
   /**
    * A comma separated list of ISO 2 or 3 character country codes to limit the search within.
    *
    * @var string|null
    */
-  private ?string $countries;
+  protected ?string $countries;
 
   /**
    * The maximum number of results to return.
    *
    * @var int|null
    */
-  private ?int $limit;
+  protected ?int $limit;
 
   /**
    * The preferred language for results. This should be a 2 or 4 character language code e.g. (en, fr, en-gb, en-us etc).
    *
    * @var string|null
    */
-  private ?string $language;
+  protected ?string $language;
 
   /**
    * Enable/Disable biasing.
    *
    * @var bool|null
    */
-  private ?bool $bias;
+  protected ?bool $bias;
 
   /**
    * V4 Shadowterms.
    *
    * @var string|null
    */
-  private ?string $filters;
+  protected ?string $filters;
 
   /**
    * InteractiveFind constructor.

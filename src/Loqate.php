@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Baikho\Loqate;
 
 use Baikho\Loqate\Address\AddressVerification;
+use Baikho\Loqate\BankAccount\BankAccountVerification;
 use Baikho\Loqate\Phone\PhoneVerification;
 
 /**
@@ -44,6 +45,16 @@ class Loqate
   public function phone(): PhoneVerification
   {
     return new PhoneVerification($this->getKey());
+  }
+
+  /**
+   * Get the Bank Account Verification API.
+   *
+   * @return BankAccountVerification
+   */
+  public function bankAccount(): BankAccountVerification
+  {
+    return new BankAccountVerification($this->getKey());
   }
 
 }

@@ -35,25 +35,27 @@ $result = (new \Baikho\Loqate\Address\Find('API Key'))
 
 ```php
 // Simple example.
-$result = $loqate->address()->retrieve('foo');
+$result = $loqate->address()->retrieve('XX|XX|XXX|XXXXXXXXXX');
 
 // Advanced example.
 $result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
-  ->setId('foo')
+  ->setId('XX|XX|XXX|XXXXXXXXXX')
   ->makeRequest();
+```
+
+### Bank Account Verification API
+
+#### Validate Bank Account:
+
+```php
+$result = $loqate->bankAccount()->validate('XXXXXXXX', 'XX-XX-XX');
 ```
 
 ### Phone Verification API
 
-#### Validate Phone:
+#### Validate Phone Number:
 
 ```php
-// Simple example.
-$result = $loqate->phone()->validate('foo');
-
-// Advanced example.
-$result = (new \Baikho\Loqate\Phone\Validate('API Key'))
-  ->setPhone('foo')
-  ->setCountry('NL')
-  ->makeRequest();
+$result = $loqate->phone()->validate('1234567890');
+$result = $loqate->phone()->validate('1234567890', 'NL');
 ```

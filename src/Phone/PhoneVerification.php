@@ -29,12 +29,13 @@ class PhoneVerification
    * Validate v2.2.
    *
    * @param string $phone
+   * @param string|null $country
    * @return mixed
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function validate(string $phone)
+  public function validate(string $phone, string $country = NULL)
   {
-    return (new Validate($this->getKey(), $phone))->makeRequest();
+    return (new Validate($this->getKey(), $phone, $country))->makeRequest();
   }
 
 }

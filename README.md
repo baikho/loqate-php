@@ -42,3 +42,18 @@ $result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
   ->setId('foo')
   ->makeRequest();
 ```
+
+### Phone Verification API
+
+#### Validate Phone:
+
+```php
+// Simple example.
+$result = $loqate->phone()->validate('foo');
+
+// Advanced example.
+$result = (new \Baikho\Loqate\Phone\Validate('API Key'))
+  ->setPhone('foo')
+  ->setCountry('NL')
+  ->makeRequest();
+```

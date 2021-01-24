@@ -23,4 +23,5 @@ class Retrieve extends BaseLoqateRequest
   {
     // TODO: Implement setParams() method.
   }
+
 }

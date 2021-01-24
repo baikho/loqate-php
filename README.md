@@ -1,6 +1,6 @@
 # loqate-php
 
-A PHP Wrapper for the Loqate API.
+A PHP Wrapper for the [Loqate API](https://www.loqate.com/resources/support/apis/).
 
 ## Examples
 

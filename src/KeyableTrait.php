@@ -2,6 +2,11 @@
 
 namespace Baikho\Loqate;
 
+/**
+ * Trait KeyableTrait.
+ *
+ * @package Baikho\Loqate
+ */
 trait KeyableTrait
 {
   /**

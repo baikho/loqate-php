@@ -13,29 +13,28 @@ use Baikho\Loqate\KeyableTrait;
  */
 class BankAccountVerification
 {
-  use KeyableTrait;
+    use KeyableTrait;
 
-  /**
-   * BankAccountVerification constructor.
-   *
-   * @param string $key
-   */
-  public function __construct(string $key)
-  {
-    $this->key = $key;
-  }
+    /**
+     * BankAccountVerification constructor.
+     *
+     * @param string $key
+     */
+    public function __construct(string $key)
+    {
+        $this->key = $key;
+    }
 
-  /**
-   * Validate v2.
-   *
-   * @param string $accountNumber
-   * @param string $sortCode
-   * @return mixed
-   * @throws \GuzzleHttp\Exception\GuzzleException
-   */
-  public function validate(string $accountNumber, string $sortCode)
-  {
-    return (new Validate($this->getKey(), $accountNumber, $sortCode))->makeRequest();
-  }
-
+    /**
+     * Validate v2.
+     *
+     * @param string $accountNumber
+     * @param string $sortCode
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function validate(string $accountNumber, string $sortCode)
+    {
+        return (new Validate($this->getKey(), $accountNumber, $sortCode))->makeRequest();
+    }
 }

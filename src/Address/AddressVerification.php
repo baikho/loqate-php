@@ -14,40 +14,39 @@ use GuzzleHttp\Exception\GuzzleException;
  */
 class AddressVerification
 {
-  use KeyableTrait;
+    use KeyableTrait;
 
-  /**
-   * AddressVerification constructor.
-   *
-   * @param string $key
-   */
-  public function __construct(string $key)
-  {
-    $this->key = $key;
-  }
+    /**
+     * AddressVerification constructor.
+     *
+     * @param string $key
+     */
+    public function __construct(string $key)
+    {
+        $this->key = $key;
+    }
 
-  /**
-   * Find v1.1.
-   *
-   * @param string $text
-   * @return mixed
-   * @throws \GuzzleHttp\Exception\GuzzleException
-   */
-  public function find(string $text)
-  {
-    return (new Find($this->getKey(), $text))->makeRequest();
-  }
+    /**
+     * Find v1.1.
+     *
+     * @param string $text
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function find(string $text)
+    {
+        return (new Find($this->getKey(), $text))->makeRequest();
+    }
 
-  /**
-   * Retrieve v1.
-   *
-   * @param string $id
-   * @return mixed
-   * @throws GuzzleException
-   */
-  public function retrieve(string $id)
-  {
-    return (new Retrieve($this->getKey(), $id))->makeRequest();
-  }
-
+    /**
+     * Retrieve v1.
+     *
+     * @param string $id
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function retrieve(string $id)
+    {
+        return (new Retrieve($this->getKey(), $id))->makeRequest();
+    }
 }

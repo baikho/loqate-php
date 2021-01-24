@@ -12,48 +12,47 @@ use Baikho\Loqate\BaseClient;
  */
 class Validate extends BaseClient
 {
-  /**
-   * The bank account number to validate.
-   *
-   * @var string|null
-   */
-  protected ?string $accountNumber;
+    /**
+     * The bank account number to validate.
+     *
+     * @var string|null
+     */
+    protected ?string $accountNumber;
 
-  /**
-   * The branch sort code for the account number.
-   *
-   * @var string|null
-   */
-  protected ?string $sortCode;
+    /**
+     * The branch sort code for the account number.
+     *
+     * @var string|null
+     */
+    protected ?string $sortCode;
 
-  /**
-   * Validate constructor.
-   *
-   * @param string $key
-   * @param string|null $accountNumber
-   * @param string|null $sortCode
-   */
-  public function __construct(string $key, string $accountNumber = NULL, string $sortCode = NULL)
-  {
-    parent::__construct($key);
-    $this->accountNumber = $accountNumber;
-    $this->sortCode = $sortCode;
-  }
+    /**
+     * Validate constructor.
+     *
+     * @param string $key
+     * @param string|null $accountNumber
+     * @param string|null $sortCode
+     */
+    public function __construct(string $key, string $accountNumber = null, string $sortCode = null)
+    {
+        parent::__construct($key);
+        $this->accountNumber = $accountNumber;
+        $this->sortCode = $sortCode;
+    }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getUri(): string
-  {
-    return 'BankAccountValidation/Interactive/Validate/2/';
-  }
+    /**
+     * {@inheritdoc}
+     */
+    public function getUri(): string
+    {
+        return 'BankAccountValidation/Interactive/Validate/2/';
+    }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function setParams(array $parameters): self
-  {
-    // TODO: Implement setParams() method.
-  }
-
+    /**
+     * {@inheritdoc}
+     */
+    public function setParams(array $parameters): self
+    {
+        // TODO: Implement setParams() method.
+    }
 }

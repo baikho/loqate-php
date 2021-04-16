@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Baikho\Loqate\Address;
 
 use Baikho\Loqate\KeyableTrait;
-use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class AddressVerification.
@@ -43,7 +42,7 @@ class AddressVerification
      *
      * @param string $id
      * @return mixed
-     * @throws GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function retrieve(string $id)
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Baikho\Loqate\BankAccount;
 
 use Baikho\Loqate\BaseClient;

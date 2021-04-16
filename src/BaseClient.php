@@ -65,8 +65,8 @@ abstract class BaseClient implements ClientInterface
         $client = new Client();
 
         $response = $client->get($this->getRootUri(), [
-      RequestOptions::QUERY => $this->toArray(),
-    ]);
+            RequestOptions::QUERY => $this->toArray(),
+        ]);
 
         return json_decode($response->getBody()->getContents());
     }

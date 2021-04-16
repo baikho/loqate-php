@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Baikho\Loqate\Phone;
 
 use Baikho\Loqate\BaseClient;

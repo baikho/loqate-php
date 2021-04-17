@@ -78,6 +78,13 @@ class Find extends BaseClient
     protected ?string $filters;
 
     /**
+     * V4 GeoFence.
+     *
+     * @var string|null
+     */
+    protected ?string $geoFence;
+
+    /**
      * Find constructor.
      *
      * @param string $key
@@ -90,8 +97,9 @@ class Find extends BaseClient
      * @param string|null $language
      * @param bool|null $bias
      * @param string|null $filters
+     * @param string|null $geoFence
      */
-    public function __construct(string $key, string $text = null, bool $isMiddleware = null, string $container = null, string $origin = null, string $countries = null, int $limit = null, string $language = null, bool $bias = null, string $filters = null)
+    public function __construct(string $key, string $text = null, bool $isMiddleware = null, string $container = null, string $origin = null, string $countries = null, int $limit = null, string $language = null, bool $bias = null, string $filters = null, string $geoFence = null)
     {
         parent::__construct($key);
         $this->text = $text;
@@ -103,6 +111,7 @@ class Find extends BaseClient
         $this->language = $language;
         $this->bias = $bias;
         $this->filters = $filters;
+        $this->geoFence = $geoFence;
     }
 
     /**
@@ -127,6 +136,7 @@ class Find extends BaseClient
         $this->language = $parameters['language'] ?? null;
         $this->bias = $parameters['bias'] ?? null;
         $this->filters = $parameters['filters'] ?? null;
+        $this->geoFence = $parameters['geoFence'] ?? null;
         return $this;
     }
 
@@ -235,6 +245,18 @@ class Find extends BaseClient
     public function setFilters(string $filters): Find
     {
         $this->filters = $filters;
+        return $this;
+    }
+
+    /**
+     * Sets the geo fence.
+     *
+     * @param string $geoFence
+     * @return Find
+     */
+    public function setGeoFence(string $geoFence): Find
+    {
+        $this->geoFence = $geoFence;
         return $this;
     }
 }

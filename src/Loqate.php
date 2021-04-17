@@ -6,6 +6,7 @@ namespace Baikho\Loqate;
 
 use Baikho\Loqate\Address\AddressVerification;
 use Baikho\Loqate\BankAccount\BankAccountVerification;
+use Baikho\Loqate\Email\EmailVerification;
 use Baikho\Loqate\Phone\PhoneVerification;
 
 /**
@@ -35,6 +36,16 @@ class Loqate
     public function address(): AddressVerification
     {
         return new AddressVerification($this->getKey());
+    }
+
+    /**
+     * Get the Email Verification API.
+     *
+     * @return EmailVerification
+     */
+    public function email(): EmailVerification
+    {
+        return new EmailVerification($this->getKey());
     }
 
     /**

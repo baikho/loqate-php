@@ -43,6 +43,14 @@ $result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
   ->makeRequest();
 ```
 
+### Email Verification API
+
+#### Validate Email Address:
+
+```php
+$result = $loqate->email()->validate('foo@example.com');
+```
+
 ### Bank Account Verification API
 
 #### Validate Bank Account:

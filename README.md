@@ -43,6 +43,30 @@ $result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
   ->makeRequest();
 ```
 
+### Geocoding API
+
+Currently only [Distance](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Distance/1/) and [Directions](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Directions/2/) APIs are supported.
+
+#### Calculate distance between two points.
+
+Easting/Northing, Latitude/Longitude & Postcodes are supported.
+
+```php
+$result = $loqate->geocoding()->distance('381600,259400', '380600,25840');
+$result = $loqate->geocoding()->distance('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
+$result = $loqate->geocoding()->distance('SE10 8XJ', 'SW1A 0AA');
+```
+
+#### Get directions between two points.
+
+Easting/Northing, Latitude/Longitude & Postcodes are supported.
+
+```php
+$result = $loqate->geocoding()->directions('381600,259400', '380600,25840');
+$result = $loqate->geocoding()->directions('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
+$result = $loqate->geocoding()->directions('SE10 8XJ', 'SW1A 0AA');
+```
+
 ### Email Verification API
 
 #### Validate Email Address:

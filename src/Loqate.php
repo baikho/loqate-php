@@ -7,6 +7,7 @@ namespace Baikho\Loqate;
 use Baikho\Loqate\Address\AddressVerification;
 use Baikho\Loqate\BankAccount\BankAccountVerification;
 use Baikho\Loqate\Email\EmailVerification;
+use Baikho\Loqate\Geocoding\GeocodingHandler;
 use Baikho\Loqate\Phone\PhoneVerification;
 
 /**
@@ -66,5 +67,15 @@ class Loqate
     public function bankAccount(): BankAccountVerification
     {
         return new BankAccountVerification($this->getKey());
+    }
+
+    /**
+     * Get the Geocoding API.
+     *
+     * @return GeocodingHandler
+     */
+    public function geocoding(): GeocodingHandler
+    {
+        return new GeocodingHandler($this->getKey());
     }
 }

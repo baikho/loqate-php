@@ -45,7 +45,13 @@ $result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
 
 ### Geocoding API
 
-Currently only [Distance](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Distance/1/) and [Directions](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Directions/2/) APIs are supported.
+The only APIs currently supported are
+
+- [Distance](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Distance/1/)
+- [Directions](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Directions/2/)
+- [UK Find](https://www.loqate.com/resources/support/apis/Geocoding/UK/Find/2/)
+- [UK Geocode](https://www.loqate.com/resources/support/apis/Geocoding/UK/Geocode/2.1/)
+- [UK Retrieve](https://www.loqate.com/resources/support/apis/Geocoding/UK/Retrieve/2/)
 
 #### Calculate distance between two points.
 
@@ -65,6 +71,37 @@ Easting/Northing, Latitude/Longitude & Postcodes are supported.
 $result = $loqate->geocoding()->directions('381600,259400', '380600,25840');
 $result = $loqate->geocoding()->directions('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
 $result = $loqate->geocoding()->directions('SE10 8XJ', 'SW1A 0AA');
+```
+
+#### Find a UK Place or Location
+
+This can be a full or partial postcode, a place name or street comma town.
+
+```php
+$result = $loqate->geocoding()->ukFind('London');
+```
+
+#### Geocode a UK Place or Location
+
+This can be a full or partial postcode, a place name or street comma town.
+
+```php
+$result = $loqate->geocoding()->ukGeocode('London');
+```
+
+#### Retrieve a UK Place or Location
+
+This can be a full or partial postcode, a place name or street comma town.
+
+```php
+$result = $loqate->geocoding()->ukRetrieve('XX|XX|XXX|XXXXXXXXXX');
+```
+#### Reverse Geocode a position to Address or Location
+
+Returns the nearest address or location to the given coordinates. A postcode or coordinates (latitude, longitude or easting, nothing) of the centre of the search.
+
+```php
+$result = $loqate->geocoding()->ukReverseGeocode('51.4733514399,-0.00088499646');
 ```
 
 ### Email Verification API

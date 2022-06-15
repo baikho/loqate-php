@@ -50,4 +50,52 @@ class GeocodingHandler
     {
         return (new InteractiveDistance($this->key, $start, $finish))->makeRequest();
     }
+
+    /**
+     * UK Find v2
+     *
+     * @param string $location
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function ukFind(string $location)
+    {
+        return (new UKFind($this->key, $location))->makeRequest();
+    }
+
+    /**
+     * UK Geocode v2.1
+     *
+     * @param string $location
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function ukGeocode(string $location)
+    {
+        return (new UKGeocode($this->key, $location))->makeRequest();
+    }
+
+    /**
+     * UK Retrieve v2
+     *
+     * @param string $id
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function ukRetrieve(string $id)
+    {
+        return (new UKRetrieve($this->key, $id))->makeRequest();
+    }
+
+    /**
+     * UK Reverse Geocode v1.1
+     *
+     * @param string $centrePoint
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function ukReverseGeocode(string $centrePoint)
+    {
+        return (new UKGeocode($this->key, $centrePoint))->makeRequest();
+    }
 }

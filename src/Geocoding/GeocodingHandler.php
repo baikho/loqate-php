@@ -52,6 +52,19 @@ class GeocodingHandler
     }
 
     /**
+     * Geocode v1.1
+     *
+     * @param string $country
+     * @param string $location
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function geocode(string $country, string $location)
+    {
+        return (new InternationalGeocode($this->key, $country, $location))->makeRequest();
+    }
+
+    /**
      * UK Find v2
      *
      * @param string $location

@@ -49,6 +49,7 @@ The only APIs currently supported are
 
 - [Distance](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Distance/1/)
 - [Directions](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Directions/2/)
+- [International Geocode](https://www.loqate.com/resources/support/apis/Geocoding/International/Geocode/1.1/)
 - [UK Find](https://www.loqate.com/resources/support/apis/Geocoding/UK/Find/2/)
 - [UK Geocode](https://www.loqate.com/resources/support/apis/Geocoding/UK/Geocode/2.1/)
 - [UK Retrieve](https://www.loqate.com/resources/support/apis/Geocoding/UK/Retrieve/2/)
@@ -71,6 +72,15 @@ Easting/Northing, Latitude/Longitude & Postcodes are supported.
 $result = $loqate->geocoding()->directions('381600,259400', '380600,25840');
 $result = $loqate->geocoding()->directions('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
 $result = $loqate->geocoding()->directions('SE10 8XJ', 'SW1A 0AA');
+```
+
+#### Geocode an International Place or Location
+
+Country must be supplied as an ISO2 or ISO3 country code.
+Location can be a postal code or place name, Loqate ID also works.
+
+```php
+$result = $loqate->geocoding()->geocode('GB', 'London');
 ```
 
 #### Find a UK Place or Location

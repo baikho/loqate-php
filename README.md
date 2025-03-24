@@ -1,4 +1,10 @@
-# loqate-php
+# Loqate PHP
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/baikho/loqate-php.svg)](https://packagist.org/packages/baikho/loqate-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/baikho/loqate-php.svg)](https://packagist.org/packages/baikho/loqate-php)
+[![MIT Licensed](https://img.shields.io/github/license/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/issues)
+[![GitHub stars](https://img.shields.io/github/stars/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/stargazers)
 
 A PHP Wrapper for the [Loqate API](https://www.loqate.com/resources/support/apis/).
 

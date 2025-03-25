@@ -14,7 +14,6 @@ use Baikho\Loqate\BaseClient;
  */
 class InternationalGeocode extends BaseClient
 {
-
     /**
      * The name or ISO 2 or 3 character code for the country to search in
      * Most country names will be recognised but the use of the ISO country code

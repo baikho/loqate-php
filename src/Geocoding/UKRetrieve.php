@@ -14,7 +14,6 @@ use Baikho\Loqate\BaseClient;
  */
 class UKRetrieve extends BaseClient
 {
-
     /**
      * The location ID to retrieve the coordinates for.
      *

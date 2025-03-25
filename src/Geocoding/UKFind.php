@@ -14,7 +14,6 @@ use Baikho\Loqate\BaseClient;
  */
 class UKFind extends BaseClient
 {
-
     /**
      * The location to geocode. This can be a full or partial postcode, a place name or street comma town.
      *

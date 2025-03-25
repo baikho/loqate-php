@@ -14,7 +14,6 @@ use Baikho\Loqate\BaseClient;
  */
 class UKReverseGeocode extends BaseClient
 {
-
     /**
      * A postcode or coordinates (latitude, longitude or easting, nothing) of the centre of the search.
      *

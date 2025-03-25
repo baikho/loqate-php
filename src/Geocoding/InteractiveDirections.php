@@ -14,7 +14,6 @@ use Baikho\Loqate\BaseClient;
  */
 class InteractiveDirections extends BaseClient
 {
-
     /**
      * The coordinates (latitude, longitude or easting, northing) of the start of the route. A postcode is also valid.
      *

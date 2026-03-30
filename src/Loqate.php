@@ -14,6 +14,12 @@ use Baikho\Loqate\Phone\PhoneVerification;
  * Class Loqate.
  *
  * @package Baikho\Loqate
+ *
+ * @property-read AddressVerification $address
+ * @property-read GeocodingHandler $geocoding
+ * @property-read EmailVerification $email
+ * @property-read PhoneVerification $phone
+ * @property-read BankAccountVerification $bankAccount
  */
 class Loqate
 {
@@ -27,6 +33,26 @@ class Loqate
     public function __construct(string $key)
     {
         $this->key = $key;
+    }
+
+    /**
+     * @return AddressVerification|GeocodingHandler|EmailVerification|PhoneVerification|BankAccountVerification
+     */
+    public function __get(string $name): AddressVerification|GeocodingHandler|EmailVerification|PhoneVerification|BankAccountVerification
+    {
+        return match ($name) {
+            'address' => $this->address(),
+            'geocoding' => $this->geocoding(),
+            'email' => $this->email(),
+            'phone' => $this->phone(),
+            'bankAccount' => $this->bankAccount(),
+            default => throw new \Error(sprintf('Undefined property: %s::$%s', self::class, $name)),
+        };
+    }
+
+    public function __isset(string $name): bool
+    {
+        return in_array($name, ['address', 'geocoding', 'email', 'phone', 'bankAccount'], true);
     }
 
     /**

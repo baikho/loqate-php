@@ -6,141 +6,159 @@
 [![GitHub issues](https://img.shields.io/github/issues/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/issues)
 [![GitHub stars](https://img.shields.io/github/stars/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/stargazers)
 
-A PHP Wrapper for the [Loqate API](https://www.loqate.com/resources/support/apis/).
+PHP Wrapper for the [Loqate API](https://docs.loqate.com/api-reference/introduction/).
+
+---
+
+## Table of contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Quick start](#quick-start)
+- [Address verification](#address-verification)
+- [Geocoding](#geocoding)
+- [Email verification](#email-verification)
+- [Bank account verification](#bank-account-verification)
+- [Phone verification](#phone-verification)
+- [License](#license)
+
+---
+
+## Requirements
+
+- PHP **8.1+**
+- Guzzle **6.5+** or **7.2+**
+
 
 ## Installation
 
-```
+```bash
 composer require baikho/loqate-php
 ```
 
-## Usage
+## Quick start
+
+Create a client with your Loqate API key, then call the helpers for each product area:
 
 ```php
-$loqate = new \Baikho\Loqate\Loqate('API Key');
+use Baikho\Loqate\Loqate;
+
+$client = new Loqate('your-api-key');
+
+$result = $client->address()->find('SW1A 1AA');
 ```
 
-### Address Verification API
+All examples below assume `$client` is already constructed as shown.
 
-#### Find Address:
+## Address verification
+
+[Capture Find `v1.10`](https://docs.loqate.com/api-reference/address-capture/find) and [Capture Retrieve `v1.00`](https://docs.loqate.com/api-reference/address-capture/retrieve) wrap address capture and retrieval.
+
+**Find (search):**
 
 ```php
-// Simple example.
-$result = $loqate->address()->find('foo');
-
-// Advanced example.
-$result = (new \Baikho\Loqate\Address\Find('API Key'))
-  ->setText('foo')
-  ->setIsMiddleWare(TRUE)
-  ->setContainer('bar')
-  ->setCountries('NL')
-  ->makeRequest();
+$result = $client->address()->find('foo');
 ```
 
-#### Retrieve Address:
+**Find with full control** (extra query parameters):
 
 ```php
-// Simple example.
-$result = $loqate->address()->retrieve('XX|XX|XXX|XXXXXXXXXX');
+use Baikho\Loqate\Address\Find;
 
-// Advanced example.
-$result = (new \Baikho\Loqate\Address\Retrieve('API Key'))
-  ->setId('XX|XX|XXX|XXXXXXXXXX')
-  ->makeRequest();
+$result = new Find('your-api-key')
+    ->setText('foo')
+    ->setIsMiddleWare(TRUE)
+    ->setContainer('bar')
+    ->setCountries('NL')
+    ->makeRequest();
 ```
 
-### Geocoding API
-
-The only APIs currently supported are
-
-- [Distance](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Distance/1/)
-- [Directions](https://www.loqate.com/resources/support/apis/DistancesAndDirections/Interactive/Directions/2/)
-- [International Geocode](https://www.loqate.com/resources/support/apis/Geocoding/International/Geocode/1.1/)
-- [UK Find](https://www.loqate.com/resources/support/apis/Geocoding/UK/Find/2/)
-- [UK Geocode](https://www.loqate.com/resources/support/apis/Geocoding/UK/Geocode/2.1/)
-- [UK Retrieve](https://www.loqate.com/resources/support/apis/Geocoding/UK/Retrieve/2/)
-
-#### Calculate distance between two points.
-
-Easting/Northing, Latitude/Longitude & Postcodes are supported.
+**Retrieve** by Loqate id:
 
 ```php
-$result = $loqate->geocoding()->distance('381600,259400', '380600,25840');
-$result = $loqate->geocoding()->distance('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
-$result = $loqate->geocoding()->distance('SE10 8XJ', 'SW1A 0AA');
+$result = $client->address()->retrieve('GB|RM|B|12345678');
 ```
-
-#### Get directions between two points.
-
-Easting/Northing, Latitude/Longitude & Postcodes are supported.
+**Retrieve with full control**:
 
 ```php
-$result = $loqate->geocoding()->directions('381600,259400', '380600,25840');
-$result = $loqate->geocoding()->directions('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
-$result = $loqate->geocoding()->directions('SE10 8XJ', 'SW1A 0AA');
+use Baikho\Loqate\Address\Retrieve;
+
+$result = new Retrieve('your-api-key')
+    ->setId('GB|RM|B|12345678')
+    ->makeRequest();
 ```
 
-#### Geocode an International Place or Location
+## Geocoding
 
-Country must be supplied as an ISO2 or ISO3 country code.
-Location can be a postal code or place name, Loqate ID also works.
+Supported endpoints:
+
+| API | Version | Loqate docs                                                                                                                |
+| --- | --- |----------------------------------------------------------------------------------------------------------------------------|
+| Distance | `v1.00` | [Distances and directions - Distance](https://docs.loqate.com/api-reference/geocode/distances-and-directions/distance)     |
+| Directions | `v2.00` | [Distances and directions - Directions](https://docs.loqate.com/api-reference/geocode/distances-and-directions/directions) |
+| International Geocode | `v1.10` | [Geocoding - International Geocode](https://docs.loqate.com/api-reference/geocode/geocoding/international-geocode)         |
+| UK Find | `v2.00` | [Geocoding - UK Find](https://docs.loqate.com/api-reference/geocode/geocoding/uk-find)                                     |
+| UK Geocode | `v2.10` | [Geocoding - UK Geocode](https://docs.loqate.com/api-reference/geocode/geocoding/uk-geocode)                          |
+| UK Retrieve | `v2.00` | [Geocoding - UK Retrieve](https://docs.loqate.com/api-reference/geocode/geocoding/uk-retrieve)                          |
+| UK Reverse Geocode | `v1.10` | [Geocoding - UK Reverse Geocode](https://docs.loqate.com/api-reference/geocode/geocoding/uk-reversegeocode)           |
+
+**Distance** between two points - easting/northing, latitude/longitude, or postcodes (UK):
 
 ```php
-$result = $loqate->geocoding()->geocode('GB', 'London');
+$result = $client->geocoding()->distance('381600,259400', '380600,25840');
+$result = $client->geocoding()->distance('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
+$result = $client->geocoding()->distance('SE10 8XJ', 'SW1A 0AA');
 ```
 
-#### Find a UK Place or Location
-
-This can be a full or partial postcode, a place name or street comma town.
+**Directions** - same coordinate formats as distance:
 
 ```php
-$result = $loqate->geocoding()->ukFind('London');
+$result = $client->geocoding()->directions('381600,259400', '380600,25840');
+$result = $client->geocoding()->directions('51.4733514399,-0.00088499646', '51.492914695,-0.1215161806');
+$result = $client->geocoding()->directions('SE10 8XJ', 'SW1A 0AA');
 ```
 
-#### Geocode a UK Place or Location
-
-This can be a full or partial postcode, a place name or street comma town.
+**International geocode** - country as ISO-2 or ISO-3; location can be postal code, place name, or Loqate id:
 
 ```php
-$result = $loqate->geocoding()->ukGeocode('London');
+$result = $client->geocoding()->geocode('GB', 'London');
 ```
 
-#### Retrieve a UK Place or Location
-
-This can be a full or partial postcode, a place name or street comma town.
+**UK find / geocode / retrieve** - full or partial postcode, place name, or `street, town` style text:
 
 ```php
-$result = $loqate->geocoding()->ukRetrieve('XX|XX|XXX|XXXXXXXXXX');
+$result = $client->geocoding()->ukFind('London');
+$result = $client->geocoding()->ukGeocode('London');
+$result = $client->geocoding()->ukRetrieve('GB|RM|B|12345678');
 ```
-#### Reverse Geocode a position to Address or Location
 
-Returns the nearest address or location to the given coordinates. A postcode or coordinates (latitude, longitude or easting, nothing) of the centre of the search.
+**UK reverse geocode** - centre point as postcode or coordinates (latitude/longitude or easting/northing):
 
 ```php
-$result = $loqate->geocoding()->ukReverseGeocode('51.4733514399,-0.00088499646');
+$result = $client->geocoding()->ukReverseGeocode('51.4733514399,-0.00088499646');
 ```
 
-### Email Verification API
-
-#### Validate Email Address:
+## Email verification
 
 ```php
-$result = $loqate->email()->validate('foo@example.com');
+$result = $client->email()->validate('foo@example.com');
 ```
 
-### Bank Account Verification API
-
-#### Validate Bank Account:
+## Bank account verification
 
 ```php
-$result = $loqate->bankAccount()->validate('XXXXXXXX', 'XX-XX-XX');
+$result = $client->bankAccount()->validate('12345678', '20-45-67');
 ```
 
-### Phone Verification API
-
-#### Validate Phone Number:
+## Phone verification
 
 ```php
-$result = $loqate->phone()->validate('1234567890');
-$result = $loqate->phone()->validate('1234567890', 'NL');
+$result = $client->phone()->validate('1234567890');
+$result = $client->phone()->validate('1234567890', 'NL');
 ```
+
+---
+
+## License
+
+This package is released under the [MIT License](LICENSE.md).

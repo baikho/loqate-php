@@ -7,10 +7,10 @@ namespace Baikho\Loqate\Address;
 use Baikho\Loqate\BaseClient;
 
 /**
- * Class Find v1.1.
+ * Class Find v1.20.
  *
  * @package Baikho\Loqate\Address
- * @see https://www.loqate.com/resources/support/apis/Capture/Interactive/Find/1.1/
+ * @see https://docs.loqate.com/api-reference/address-capture/find
  */
 class Find extends BaseClient
 {
@@ -119,7 +119,7 @@ class Find extends BaseClient
      */
     public function getUri(): string
     {
-        return 'Capture/Interactive/Find/v1.1/';
+        return 'Capture/Interactive/Find/v1.20/';
     }
 
     /**

@@ -53,7 +53,7 @@ All examples below use property access and assume `$client` is already construct
 
 ## Address verification
 
-[Capture Find `v1.10`](https://docs.loqate.com/api-reference/address-capture/find) and [Capture Retrieve `v1.00`](https://docs.loqate.com/api-reference/address-capture/retrieve) wrap address capture and retrieval.
+[Capture Find `v1.20`](https://docs.loqate.com/api-reference/address-capture/find) and [Capture Retrieve `v1.30`](https://docs.loqate.com/api-reference/address-capture/retrieve) wrap address capture and retrieval.
 
 **Find (search):**
 

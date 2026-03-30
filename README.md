@@ -52,7 +52,7 @@ All examples below assume `$client` is already constructed as shown.
 
 ## Address verification
 
-[Interactive Find](https://www.loqate.com/resources/support/apis/Capture/Interactive/Find/1.1/) and [Interactive Retrieve](https://www.loqate.com/resources/support/apis/Capture/Interactive/Retrieve/1/) wrap address capture and retrieval.
+[Capture Find `v1.10`](https://docs.loqate.com/api-reference/address-capture/find) and [Capture Retrieve `v1.00`](https://docs.loqate.com/api-reference/address-capture/retrieve) wrap address capture and retrieval.
 
 **Find (search):**
 
@@ -98,9 +98,9 @@ Supported endpoints:
 | Directions | `v2.00` | [Distances and directions - Directions](https://docs.loqate.com/api-reference/geocode/distances-and-directions/directions) |
 | International Geocode | `v1.10` | [Geocoding - International Geocode](https://docs.loqate.com/api-reference/geocode/geocoding/international-geocode)         |
 | UK Find | `v2.00` | [Geocoding - UK Find](https://docs.loqate.com/api-reference/geocode/geocoding/uk-find)                                     |
-| UK Geocode | `v2.10` | [Geocoding - UK Geocode](https://www.loqate.com/resources/support/apis/Geocoding/UK/Geocode/2.1/)                          |
-| UK Retrieve | `v2.00` | [Geocoding - UK Retrieve](https://www.loqate.com/resources/support/apis/Geocoding/UK/Retrieve/2/)                          |
-| UK Reverse Geocode | `v1.10` | [Geocoding - UK Reverse Geocode](https://www.loqate.com/resources/support/apis/Geocoding/UK/ReverseGeocode/1.1/)           |
+| UK Geocode | `v2.10` | [Geocoding - UK Geocode](https://docs.loqate.com/api-reference/geocode/geocoding/uk-geocode)                          |
+| UK Retrieve | `v2.00` | [Geocoding - UK Retrieve](https://docs.loqate.com/api-reference/geocode/geocoding/uk-retrieve)                          |
+| UK Reverse Geocode | `v1.10` | [Geocoding - UK Reverse Geocode](https://docs.loqate.com/api-reference/geocode/geocoding/uk-reversegeocode)           |
 
 **Distance** between two points - easting/northing, latitude/longitude, or postcodes (UK):
 

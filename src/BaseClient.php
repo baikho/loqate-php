@@ -38,7 +38,7 @@ abstract class BaseClient implements ClientInterface
      */
     public function getRootUri(): string
     {
-        return 'https://api.addressy.com/' . $this->getUri() . 'json3.ws';
+        return 'https://api.addressy.com/' . $this->getUri() . 'json6.ws';
     }
 
     /**

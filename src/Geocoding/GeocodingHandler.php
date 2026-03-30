@@ -109,6 +109,6 @@ class GeocodingHandler
      */
     public function ukReverseGeocode(string $centrePoint)
     {
-        return (new UKGeocode($this->key, $centrePoint))->makeRequest();
+        return (new UKReverseGeocode($this->key, $centrePoint))->makeRequest();
     }
 }

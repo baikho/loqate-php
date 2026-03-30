@@ -7,6 +7,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/stargazers)
 
 PHP Wrapper for the [Loqate API](https://docs.loqate.com/api-reference/introduction/).
+
 ---
 
 ## Table of contents

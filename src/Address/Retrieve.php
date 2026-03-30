@@ -7,10 +7,10 @@ namespace Baikho\Loqate\Address;
 use Baikho\Loqate\BaseClient;
 
 /**
- * Class Retrieve v1.
+ * Class Retrieve v1.30.
  *
  * @package Baikho\Loqate\Address
- * @see https://www.loqate.com/resources/support/apis/Capture/Interactive/Retrieve/1/
+ * @see https://docs.loqate.com/api-reference/address-capture/retrieve
  */
 class Retrieve extends BaseClient
 {
@@ -142,7 +142,7 @@ class Retrieve extends BaseClient
      */
     public function getUri(): string
     {
-        return 'Capture/Interactive/Retrieve/v1/';
+        return 'Capture/Interactive/Retrieve/v1.30/';
     }
 
     /**

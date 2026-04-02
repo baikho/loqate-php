@@ -6,8 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/issues)
 [![GitHub stars](https://img.shields.io/github/stars/baikho/loqate-php.svg)](https://github.com/baikho/loqate-php/stargazers)
 
-PHP Wrapper for the [Loqate API](https://docs.loqate.com/api-reference/introduction/).
-
+A Modern PHP Wrapper for the [Loqate API](https://docs.loqate.com/api-reference/introduction/).
 ---
 
 ## Table of contents
@@ -54,7 +53,12 @@ All examples below use property access and assume `$client` is already construct
 
 ## Address verification
 
-[Capture Find `v1.20`](https://docs.loqate.com/api-reference/address-capture/find) and [Capture Retrieve `v1.30`](https://docs.loqate.com/api-reference/address-capture/retrieve) wrap address capture and retrieval.
+Supported endpoints:
+
+| API | Version | Loqate docs |
+| --- | --- | --- |
+| Capture Find | `v1.20` | [Address capture - Find](https://docs.loqate.com/api-reference/address-capture/find) |
+| Capture Retrieve | `v1.30` | [Address capture - Retrieve](https://docs.loqate.com/api-reference/address-capture/retrieve) |
 
 **Find (search):**
 
@@ -142,17 +146,35 @@ $result = $client->geocoding->ukReverseGeocode('51.4733514399,-0.00088499646');
 
 ## Email verification
 
+Supported endpoints:
+
+| API | Version | Loqate docs |
+| --- | --- | --- |
+| Individual validate | `v2.00` | [Email validation - Individual](https://docs.loqate.com/api-reference/email-validation/individual) |
+
 ```php
 $result = $client->email->validate('foo@example.com');
 ```
 
 ## Bank account verification
 
+Supported endpoints:
+
+| API | Version | Loqate docs |
+| --- | --- | --- |
+| Individual validate | `v2.00` | [Bank validation - Individual](https://docs.loqate.com/api-reference/bank-validation/individual) |
+
 ```php
 $result = $client->bankAccount->validate('12345678', '20-45-67');
 ```
 
 ## Phone verification
+
+Supported endpoints:
+
+| API | Version | Loqate docs |
+| --- | --- | --- |
+| Individual validate | `v2.20` | [Phone validation - Individual validate](https://docs.loqate.com/api-reference/phone-validation/individual-validate) |
 
 ```php
 $result = $client->phone->validate('1234567890');

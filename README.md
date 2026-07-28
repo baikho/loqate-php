@@ -27,7 +27,7 @@ A Modern PHP Wrapper for the [Loqate API](https://docs.loqate.com/api-reference/
 ## Requirements
 
 - PHP **8.1+**
-- Guzzle **6.5+** or **7.2+**
+- Guzzle **6.5+**, **7.2+** or **8.0+**
 
 
 ## Installation

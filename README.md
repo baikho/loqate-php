@@ -1,3 +1,5 @@
+
+
 # Loqate PHP
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/baikho/loqate-php.svg)](https://packagist.org/packages/baikho/loqate-php)
@@ -49,6 +51,8 @@ $result = $client->address->find('SW1A 1AA');
 ```
 
 The same entry points are also available as **methods** (`$client->address()`, `$client->geocoding()`, and so on). Both styles return a new handler each time.
+
+Note: All handler methods (e.g., `find()`, `validate()`, `distance()`) internally call `makeRequest()`, which returns a decoded JSON object.
 
 All examples below use property access and assume `$client` is already constructed as shown.
 
